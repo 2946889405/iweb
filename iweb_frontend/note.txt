@@ -3,9 +3,9 @@
   ①CSS Reset：样式重置，把HTML标签的默认样式统一化——可以使用Normalize.css
   ②Scaffolding：样式脚手架，设定全局的基础样式
   ③Layout System：布局系统，进行页面布局必需的class
-  ④
+  ④Components: 组件,多个页面所共
   ⑤
-  123456
+  
 
 
 课后任务：

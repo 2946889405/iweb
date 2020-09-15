@@ -42,3 +42,9 @@ li {
 .float-right {
 	float: right;
 }
+.text-right {
+	text-align: right;
+}
+.text-center {
+	text-transform: center;
+}
