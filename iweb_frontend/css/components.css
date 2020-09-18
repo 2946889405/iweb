@@ -140,9 +140,91 @@
 .carousel   .indicators  li.active {
 	background: #ff9300;
 }
-.mainbar{
+.carousel   .controls {
+	
+	position: absolute;
+	top: 50%;
+	left: 50%;
+}
+.carousel   .controls  .prev,
+.carousel   .controls  .next {
+	position: absolute;
+	width: 54px;
+	height: 94px;
+	font-size: 5em;
+	line-height: 94px;
+	text-align: center;
+	background: rgba(0,0,0,0.3);
+	color: #fff;
+	margin-top: -47px;
+}
+.carousel  .controls  .prev {
+	margin-left: -496px;
+}
+.carousel  .controls  .next {
+	margin-left: 442px;
+}
+.carousel   .controls  .prev:hover,
+.carousel   .controls  .next:hover {
+	background: rgba(0,0,0, 0.6);
+}
+
+.mainbar {
 	border-bottom: 1px solid #ddd;
 }
+.mainbar   .header  {
+	position: relative;
+	border-bottom: 3px solid #ddd;
+}
+.mainbar  .header   h3 {
+	font-weight: normal;
+	margin-bottom:  .5em;
+	padding: 0 0.8em;
+}
+.mainbar  .header  a {
+	position: absolute;
+	right: 0;
+	bottom: .3em
+}
+.mainbar  .header  span { 
+	width: 7em;
+	height: 3px;
+	position: absolute;
+	left: 0;
+	bottom: -3px;
+	background: #00BE56;
+}
+.mainbar   .course   {
+	padding: 1.2em    0;
+}
+.mainbar   .course    .pic    img {
+	width: 100%;
+}
+.mainbar   .course   .title {
+	display: block;
+	text-align: left;
+	line-height: 1.6em;
+}
+.mainbar   .course   .teacher {
+	display: block;
+	font-size: .8em;
+	color: #999;
+	text-align: left;
+}
+.mainbar   .course    .price {
+	display: block;
+	font-weight: bold;
+	color: #ff5a00;
+	text-align: left;
+	line-height: 1.6em;
+	
+}
+
+.mainbar   .col-lg-3:nth-child(4n+1)  .course {
+	/*padding-left: 0;*/
+	/*margin-left: -1em;*/
+}
+
 .bottombar {
 	background: #eee;
 }
