@@ -1,0 +1,45 @@
+1.面试题：大型界面的css章法？
+2.一个大型页面（例如：京东）css大约1000行，编写时有一定的章法：
+3 Reset：样式重置，把HTML标签的默认样式统一化------可以使用Normalize.css
+4.Scaffolding：样式脚手架，设定全局的基础样式
+5.Layout System:布局系统
+ 
+ 
+ 2.使用浮动布局常见问题
+   若容器中的子元素浮动起来，则不再占用布局空间
+   如果容器内所用的子元素全部浮动，父容器不再用高度。
+   解决方案给父容器添加新的没有浮动的子元素
+   .child{
+	   float:left
+   }
+   .parent:after{
+	   在父容器尾部生成新孩子
+	   content:'';
+	   display:block;
+	   clear:both;/*清除兄弟浮动造成的影响*/
+   }
+fontAwsome的使用步骤
+在css文件中声明两个class：
+//定义一种新的字体
+@font-face{font-family:"FontAwsome" src:url('../fonts/fontawsome.ttf')};
+//使用刚刚定义的新字体
+.fa{font-family:'FontAwsome'};
+
+
+
+
+
+
+1.面试题：CSS中的元素有哪些？各自的使用场合？
+  ①静态定位：默认值   占用布局空间不能使用top/right/bottom/left
+  改变自己的位置
+  position:static
+  ②相对定位:与静态定位的元素几乎没有区别（也占布局空间），可以使用top/right/bottom/left
+  修改位置（参照物是自己默认位置）--即使移走了，仍然不释放默认的布局空间）
+  常用于为绝对定位子元素提供参照物
+    position:relative
+  ③绝对定位: 不占用布局空间，常用于悬停其他元素上方的效果；
+  可以指定top/right/bottom/left属性——必需一个已经定位的父元素
+    position:absolute
+  ④固定定位:不占用布局空间，常用于固定定为于屏幕的某个特定位置，不随内容的滚动而滚动
+    position:fixed
