@@ -78,45 +78,61 @@
 	color: #00be56;
 	padding: 0 0.5em;
 }
-@media  screen and (max-width:  767px) {
-	.searchbar {
+/* 手机屏幕下的搜索条：LOGO+SEARCH+HUMBURGER */
+@media screen and (max-width:767px) {
+	.searchbar{
 		background: #00be56;
 		border-bottom: 3px solid #b3efc0;
 		height: 52px;
 		font-size: 1.15em;
 	}
-}
-.logo-container {
-	height: 52px;
-	display: flex;
-	align-items: center;
-}
-.logo_reverse {
-	width: 100%;
-}
-.search {
-	position: relative;
-	margin-top: 10px;
-	top: 0;
-	right: 0;
-}
-.search-input {
-	width: 100%;
-	padding: 0   3em   0   0.6em;
-	margin-right: 0;
+	.logo-container{
+		height: 52px;/* 容器的高大于内容的高，才有可能有竖直居中的问题 */
+		display: flex;/* 图片的容器显示模式变为：弹性盒子 */
+		align-items: center;/* 弹性盒子中的子元素居中对齐 */
+	}
+	
+	.logo_reverse{
+		/* flex: 1; */
+		width: 100%/* 正常情况下，控制弹性盒子中子元素的尺寸 */;
+		transform: translateX(12px);
+	}
+	
+	.search {
+		position: relative;		/* 相对定位 */
+		margin-top: 9px;		/* 往上微调自身高度的一半 */
+		top: 0;
+		right: 0;
+
+	}
+	
+	.search-input {
+		width: 100%;
+		padding: 0 3em 0 0.6em;
+		margin-right: 0px;		/* 清除之前对所有屏幕下设定的 */
+	}
+	
+	.search-button {
+		background: transparent;
+		color: #00BE56;
+		top: -2px;
+		
+	}
+	.hamburger{
+		color: #fff;
+		line-height: 52px;
+		font-size: 30px;
+		transform: translateX(2px);
+	}
 	
 }
-.search-button {
-	background: transparent;
-	color: #00BE56;
-	top: -2px;
-}
+
 
 /*3.导航条*/
 .navbar {
 	background: #00be56;
 	border-bottom: 3px solid #b3efc0;
-	height: 52px;
+	/* height: 52px; */
 	font-size: 1.15em;
 }
 
@@ -152,6 +168,35 @@
 
 .user-center a:hover {
 	color: #ffff9b;
+}
+@media  screen and (max-width:767px) {
+	/* PHONE屏幕下，导航条变为"充满整个屏幕的半透明区" */
+	.navbar{
+		/* display: none; */
+		transform: translateX(-100%);/* 默认情况下，响应式导航条隐藏在屏幕左侧 */
+		position: fixed;/* 固定定位 */
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: rgba(0,0,0,0.7);/* 半透明 */
+		height: auto;
+		z-index: 9999;
+	}
+	.menu>li{
+		float: none;/* PHONE下每个菜单项独占一行 */
+		text-align: center;
+		border-bottom: 1px solid #666;
+	}
+	.menu-close{
+		/* 仅在PHONE屏幕下显示的关闭按钮 */
+		position: absolute;
+		top: 7px;
+		right: 10px;
+		color: #fff;
+		font-size: 1.8em;
+		/* font-weight: bold;/* 加粗 */ */
+	}
 }
 
 /* 4.轮播广告 */
@@ -238,7 +283,36 @@
 .carousel .controls .next {
 	margin-left: 442px;
 }
-
+@media screen and (max-width:767px) {
+	.carousel .items a{
+		height: 190px;
+		/* 背景图原高380px,此处的容器较小，让背景图覆盖 */
+		background-size: cover;
+	}
+   .carousel .controls{
+	   position: static;/* 静态定位 。取消.prev和.next父元素的绝对定位，让他俩的定位参照物设定为.carousel即可*/
+   }
+	.carousel .controls .prev{
+     	margin-left: 0;/* 清除全局margin-left */
+		left: 0;
+		top: 50%;
+     }
+     .carousel .controls .next{
+     	margin-left: 0;/* 清除全局margin-left*/
+		right: 0;
+		top: 50%;
+     }
+}
+@media screen and (min-width:768px) and (max-width:1023px) {
+	.carousel .controls .prev{
+		margin-left: -375px;/* 向左移容器的一半 */
+		
+	}
+	.carousel .controls .next{
+		margin-left: 321px;/* 向右移动容器半宽--自己的宽*/
+	}
+}
+/* 主体部分 */
 .mainbar {
 	border-bottom: 1px solid #ddd;
 }
@@ -412,4 +486,32 @@
 	margin: 1em 0 1.5em 0;
 	/* 上右下左 */
 	font-size: .8em;
+}
+/* 底部的页签条 */
+
+@media screen and (max-width:767px) {
+	/* 让body在底部留白，高度为.tabbar的高度 */
+	body{
+		margin-bottom: 64px;
+	}
+	.tabbar{
+		position: fixed;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		height: 64px;
+		background: #f8f6fa;
+		border-top: 1px solid #d2cfcc;
+	}
+	.tab{
+		color: #ddd;
+		text-align: center;
+		padding: 8px 0 0;
+	}
+	.tab .active{
+		color: #00BE56;
+	}
+	.tab .fa{
+		font-size: 2em;
+	}
 }
