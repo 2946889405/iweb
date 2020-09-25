@@ -23,4 +23,61 @@ if(currentCarousel>=totalCarousel){
 //显示新的轮播广告项:首先隐藏当前显示的广告项——li删除active类
 document.querySelector('.carousel>.items>li.active').classList.remove('active')
 //然后再让目标广告项显示出来——li添加active类
+let list = document.querySelectorAll('.carousel>.items>li')
+list[currentCarousel].classList.add('active')
 }
+
+//点击"上一张"按钮,自动切换到广告中的上一张
+document.querySelector('[data-carousel="prev"]').onclick = function(){
+	currentCarousel--  //切换到上一个
+if(currentCarousel < 0){
+	//如果已经切换到最后一张之后,必需重回到最后一张
+	currentCarousel = totalCarousel-1
+}
+//显示新的轮播广告项:首先隐藏当前显示的广告项——li删除active类
+document.querySelector('.carousel>.items>li.active').classList.remove('active')
+//然后再让目标广告项显示出来——li添加active类
+let list = document.querySelectorAll('.carousel>.items>li')
+list[currentCarousel].classList.add('active')
+}
+
+//点击四个"轮播指示器(小圆饼)"时,切换到对应的广告项
+let indicatorlist = document.querySelectorAll('[data-carousel-to]')
+// console.log(indicatorlist) //类数组对象
+//循环遍历数组中的每个元素
+indicatorlist.forEach(function(e,i){
+	//console.log(i, e)
+	e.onclick = function(){
+		
+document.querySelector('.carousel>.items>li.active').classList.remove('active')
+document.querySelector('.carousel>.items>li:nth-child('+(i+1)+')').classList.add('active')	
+
+document.querySelector('.carousel>.indicators>li.active').classList.remove('active')
+document.querySelector('.carousel>.indicators>li:nth-child('+(i+1)+')').classList.add('active')	
+		
+	}
+	
+})
+
+
+//让轮播广告每隔3s自动切换到下一张
+//一次性定时器
+//let timer = setTimeout()
+//周期性定时器
+let timer = setInterval(function(){
+	currentCarousel++
+	if(currentCarousel>=totalCarousel){
+		//如果切换到最后一张之后,则重新从头开始轮播
+		currentCarousel = 0
+	}
+	//切换当前显示的广告项
+	document.querySelector('.carousel>.items>li.active').classList.remove('active')
+	document.querySelector('.carousel>.items>li:nth-child('+(currentCarousel+1)+')').classList.add('active')	
+	//切换当前广告项对应的指示器
+	document.querySelector('.carousel>.indicators>li.active').classList.remove('active')
+	document.querySelector('.carousel>.indicators>li:nth-child('+(currentCarousel+1)+')').classList.add('active')	
+}, 4000)
+
+
+
+
