@@ -1,70 +1,89 @@
-/* 1.主体部分 */
-.mainbar {
-	background: #fcfcfc;
+.mainbar{
+	background-color: #FCFCFC;
 }
 .mainbar:before,
-.mainbar:after {/*解决.mainbar里.container的margin越界问题*/
-	content: '';
+.mainbar:after{
+	content:'';
 	display: table;
 }
-.mainbar  .container {
+.mainbar .container{
 	background: #fff;
-	margin: 3em  auto  3.5em;
+	margin: 3em auto 3.5em;
 	border: 1px solid #e6e6e6;
-	/* 边框外侧的外阴影: 水平偏移量  竖直偏移量  阴影半径  阴影颜色 */
-	box-shadow: 0  0  2px  #e6e6e6;
-	/* 边框圆角半径 */
+	/*外阴影:水平偏移 竖直 阴影*/
+	box-shadow:0 0 10px #fff ;
 	border-radius: 2px;
-	padding: 1em  7em  2em;
+	padding: 1em 7em 2em;
 }
-.form  .header {
+.form .header{
 	font-size: 1.4em;
-	color: #FF9300;
+	color: #ff9300;
 	line-height: 4em;
 	border-bottom: 1px solid #ddd;
 	text-align: center;
 }
-.form  .row {
-	line-height: 2.9em;
-	padding: .6em  0;
+.form .header .jump-to-login{
+	font-size: 0.8em;
+	color: #ff9300;
 }
-.form  label {
-	/* label默认是inline元素，无法指定左右对齐，必需修改为块级元素 */
-	display: block;
+.form .row{
+	line-height: 2.5em;
+	padding: 0.6em 0;
+}
+.form lable{
 	text-align: right;
+	display: block;
+	font-size: 1.3em;
 }
-.form  input {
+.form input[type="text"],
+.form input[type="password"],
+.form input[type="tel"]{
 	width: 100%;
-	padding: .8em  1em;
-	border: 1px solid #ccc;
-	border-radius: 3px;  /* 边框圆角半径 */
-	vertical-align: middle; /*竖直方向上与同一行中的文字居中对齐*/
+	padding: 1em 1em;
+	border: 1px solid #CCCCCC;
+	border-radius:3px;
+	vertical-align: middle;
 }
-.form  span.error {
-	color: #f00;
+.form span.error{
+	color:#f00;
 }
-.form  span.succ {
+.form span.succ{
 	color: #00c160;
 }
-.form  .captcha {
-	height: 34px;   /*宽会随着高等比例缩放*/
-	vertical-align: middle; /*图片与后面的文字竖直居中对齐*/
+.form .captcha{
+	height: 34px;
+	vertical-align: middle;/*这样可以让图片与文字竖直对齐*/
 }
-.form  .refresh {
+.form .refresh{
 	font-size: 2em;
 	color: #00BE56;
-	cursor: pointer; /*鼠标悬停时呈现“手指”效果*/
-	line-height: 34px;
+	cursor: pointer;
 }
-/* PHONE屏幕下，调整间距及文字对齐 */
-@media screen and (max-width:767px) {
-	.mainbar  .container {
-		padding: 0  1em  1em;
+
+.button-szh{
+	background: #66a428;
+	border: none;
+	padding: 0.5em 0em;
+	color: #fff;
+	font-size: 1.5em;
+	margin-left: 2em;
+}
+.button-szh:hover{
+	background:green;
+}
+@media screen and (min-width:768px) and (max-width:1023px) {
+	.button-szh{
+		width: 280px;
 	}
-	.form  .row {
+}
+@media screen and (max-width:767px){
+	.mainbar .container{
+		padding: 0em 1em 1em;
+	}
+	.form .row{
 		line-height: 2em;
 	}
-	.form  label {
-		text-align: left;
+	.form lable{
+		text-align:left;
 	}
 }
