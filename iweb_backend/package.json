@@ -1,39 +1,26 @@
 {
   "name": "iweb_backend",
-  "version": "2.0.0",
-  "description": "iWeb project backend subsystem, privoding data API",
-  "main": "index.js",
-  "engines": {
-    "node": ">=12.16.1  <12.16.5"
-  },
+  "version": "2.0.1",
+  "description": "iWeb project backend data API subsystem",
+  "main": "main.js",
   "scripts": {
-    "test": "node  ./test.js",
-    "start": "node  ./index.js",
-    "dev": "nodemon  ./index.js"
+    "test": "node ./test.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lwh/iweb.git"
+    "url": "htttp://github.com/486868297/iweb"
   },
   "keywords": [
     "iweb",
+    "qpi",
+    "486868297",
     "backend",
-    "api",
-    "tedu"
+    "niuchangli"
   ],
-  "author": "LiWenhua",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/lwh/iweb/issues"
-  },
-  "homepage": "https://github.com/lwh/iweb#readme",
+  "author": "NiuChangli",
+  "license": "MIT",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
     "express": "^4.17.1",
-    "express-session": "^1.17.1",
-    "multer": "^1.4.2",
-    "mysql": "^2.18.1",
-    "svg-captcha": "^1.4.0"
+    "mysql": "^2.18.1"
   }
 }
